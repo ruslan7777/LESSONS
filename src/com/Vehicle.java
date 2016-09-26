@@ -7,9 +7,9 @@ package com;
 // Добавление метода range() в класс Vehicle               //Adding a method of range () in the Vehicle class
 public class Vehicle {
     int passengers, fuelcap, mpg;
-    void range(){
-        System.out.println("Distanse- "+ fuelcap*mpg+ " miles");
-    }
+    int range(){
+        return mpg*fuelcap;
+    } //Возврат дальности поездки дпя заданного тронспортного средства
 }
 class AddMeth{
     public static void main(String[] args) {
@@ -18,7 +18,7 @@ class AddMeth{
 
         int range1,range2;
 // Присвоить значения полям в объекте minivan              // Assign values to the fields in the object minivan
-        minivan.passengers=2;
+        minivan.passengers=7;
         minivan.fuelcap=16;
         minivan.mpg=21;
 
@@ -27,12 +27,13 @@ class AddMeth{
         sportcar.fuelcap=14;
         sportcar.mpg=12;
 
-        System.out.print("Mini van can carry " + minivan.passengers+ " passengers ");
-        minivan.range();// display trip distance mini-van
+        range1 = minivan.range();  //Присвоение переменной значения, возвращаемого методом
+        range2 = sportcar.range();  //Присвоение переменной значения, возвращаемого методом
 
-        System.out.print("Sport car can carry " + sportcar.passengers+ " passengers ");
-        sportcar.range();// display trip distance mini-van
-    }
+
+        System.out.println("Mini van can carry "+ minivan.passengers + " a distance " + range1+ " miles ");
+        System.out.print("Sport car can carry " +sportcar.passengers+ " a distance " +  range2+ " passengers ");
+            }
 }
 // Обращение к переменным экземпляра fuelcap и mpg осуществляется в методе без использования точечной
 //нотации (строка 9). То есть если в методе используется переменная экземпляра, определенная в его классе,
