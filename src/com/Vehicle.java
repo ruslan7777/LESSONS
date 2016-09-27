@@ -16,8 +16,7 @@ class AddMeth{
         Vehicle minivan=new Vehicle();
         Vehicle sportcar=new Vehicle();
 
-        int range1,range2;
-// Присвоить значения полям в объекте minivan              // Assign values to the fields in the object minivan
+        // Присвоить значения полям в объекте minivan              // Assign values to the fields in the object minivan
         minivan.passengers=7;
         minivan.fuelcap=16;
         minivan.mpg=21;
@@ -27,12 +26,9 @@ class AddMeth{
         sportcar.fuelcap=14;
         sportcar.mpg=12;
 
-        range1 = minivan.range();  //Присвоение переменной значения, возвращаемого методом
-        range2 = sportcar.range();  //Присвоение переменной значения, возвращаемого методом
 
-
-        System.out.println("Mini van can carry "+ minivan.passengers + " a distance " + range1+ " miles ");
-        System.out.print("Sport car can carry " +sportcar.passengers+ " a distance " +  range2+ " passengers ");
+        System.out.println("Mini van can carry "+ minivan.passengers + " a distance " + minivan.range()+ " miles ");
+        System.out.print("Sport car can carry " +sportcar.passengers+ " a distance " + sportcar.range() + " passengers ");
             }
 }
 // Обращение к переменным экземпляра fuelcap и mpg осуществляется в методе без использования точечной
