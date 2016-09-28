@@ -4,19 +4,30 @@ package com;
  * Created by RUSLAN77 on   23.09.2016 in Ukraine in Ukraine
  */
 
+//Добавление параметризированного метода, в котором производится расчет объема топлива, необходимого транспортному средству для
+ //  преодоления заданного расстояния.
+    //Adding a parameterized method, which is carried out calculation of the amount of fuel required for the vehicle
+    //  overcoming a given distance.
+
+
 // Добавление метода range() в класс Vehicle               //Adding a method of range () in the Vehicle class
-public class Vehicle {
+class Vehicle {
     int passengers, fuelcap, mpg;
-    int range(){
-        return mpg*fuelcap;
-    } //Возврат дальности поездки дпя заданного тронспортного средства
+    //Рассчитать объем топлива, необходимого транспортному средству для преодоления заданного расстояния
+//Calculate the amount of fuel needed for the vehicle to overcome a given distance
+double fuelneeded(int miles){
+    return (double) miles/mpg;
 }
-class AddMeth{
+}
+
+class CompFuel{
     public static void main(String[] args) {
         Vehicle minivan=new Vehicle();
         Vehicle sportcar=new Vehicle();
+        double gallons;
+        int dist=252;
 
-        // Присвоить значения полям в объекте minivan              // Assign values to the fields in the object minivan
+                // Присвоить значения полям в объекте minivan              // Assign values to the fields in the object minivan
         minivan.passengers=7;
         minivan.fuelcap=16;
         minivan.mpg=21;
@@ -26,9 +37,11 @@ class AddMeth{
         sportcar.fuelcap=14;
         sportcar.mpg=12;
 
+        gallons=minivan.fuelneeded(dist);
+        System.out.println("Для преодоления " + dist +  " миль мини-фургону требуется " +    gallons + " галлонов топлива");
 
-        System.out.println("Mini van can carry "+ minivan.passengers + " a distance " + minivan.range()+ " miles ");
-        System.out.print("Sport car can carry " +sportcar.passengers+ " a distance " + sportcar.range() + " passengers ");
+        gallons=sportcar.fuelneeded(dist);
+        System.out.println("Для преодоления " + dist +  " миль спортивному автомобилю требуется " +    gallons + " галлонов топлива");
             }
 }
 // Обращение к переменным экземпляра fuelcap и mpg осуществляется в методе без использования точечной
