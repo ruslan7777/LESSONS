@@ -1,6 +1,6 @@
 package com;
 /**
- * Created by RUSLAN77 on 01.07.2016.
+ * Created by RUSLAN77 on  01.07.2016  Ukraine
  */
 public class Help {
     public static void main(String[] args) throws java.io.IOException {
@@ -35,4 +35,6 @@ public class Help {
 
 
     }
+
+
 }
