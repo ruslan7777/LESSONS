@@ -9,7 +9,7 @@ Try This 4-1  Convert the help system from Try This 3-3 into a Help class.
 Упражнение 4.1  Преобразование в класс Help справочной системы  из упражнения 3.3 (на основе Help3)
 */
 class Help1 {
-    void helpOn(int what) {
+       void helpOn(int what) {
         switch(what) {
             case '1':
                 System.out.println("The if:\n");
