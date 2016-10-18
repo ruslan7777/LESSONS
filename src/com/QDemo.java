@@ -38,7 +38,6 @@ class Queue {
 инкрементируется и из нее извлекается очередной элемент. Следовательно, переменная getloc содержит индекс последнего извлеченного элемента.*/
     }
 }
-
 class QDemo {
     public static void main(String args[]) {
         Queue bigQ = new Queue(100);
@@ -60,10 +59,10 @@ class QDemo {
 
         System.out.println("\n");
         System.out.println("Иcпoльзoвaниe очереди smallQ   для генерации ошибок");
+
 // Использовать очередь smallQ для генерации ошибок
         for (i = 0; i < 5; i++) {
-            System.out.print("Пoпыткa сохранения " +
-                    (char) ('z' - i));
+            System.out.print("Пoпыткa сохранения " + (char) ('z' - i));
             smallQ.put((char) ('Z' - i));
             System.out.println();
         }
@@ -73,7 +72,7 @@ class QDemo {
         System.out.print("Coдepжимoe smallQ: ");
         for (i = 0; i < 5; i++) {
             ch = smallQ.get();
-            if (ch != (char) 0) System.out.print(ch);
+            if (ch != (char) 0) System.out.print(ch+" ");
         }
     }
 }
