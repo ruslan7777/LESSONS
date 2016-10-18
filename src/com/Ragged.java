@@ -26,7 +26,6 @@ public class Ragged {
                 riders[i][j] = i + j + 10;
 
         System.out.println("Количество пассажиров, перевезенных каждым рейсом, в будние дни недели:");  //Number of passengers carried each flight, on weekdays // the week
-
         for(i=0; i < 5; i++) {
             for (j = 0; j < 10; j++)
                 System.out.print(riders[i][j] + " ");
