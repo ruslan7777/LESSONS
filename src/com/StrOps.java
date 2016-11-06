@@ -28,7 +28,7 @@ public class StrOps {
             System.out.println("str1 не эквивалентна str3");
 
         result = str1.compareTo(str3);
-        if (result == 0)
+        if (result == 0)  //todo
             System.out.println("str1 и str3 равны");
         else if (result < 0)
             System.out.println("str1<str3");
