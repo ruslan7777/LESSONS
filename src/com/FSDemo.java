@@ -45,6 +45,9 @@ public class FSDemo {
         // Демонстрация корректной обработки ошибок
         System.out.println("Oбpaбoткa ошибок без вывода отчета:");
 
+        for(int i=0; i < (fs.length * 2); i++)
+            fs.put(i, i * 10);
+
         for (int i = 0; i < (fs.length * 2); i++) {
             x = fs.get(i);           //Для обращения к элементам массива должны использоваться методы доступа
             if (x != -1) System.out.print(x + " ");
