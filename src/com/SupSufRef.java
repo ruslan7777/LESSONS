@@ -24,7 +24,7 @@ class Y2 extends X2 {
     }
 }
 
-public class SubSufRef {
+public class SupSufRef {
     public static void main(String[] args) {
         X2 x = new X2(10);
         X2 t2;
