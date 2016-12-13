@@ -9,6 +9,21 @@ package com;
 //Adding a parameterized method, which is carried out calculation of the amount of fuel required for the vehicle
 //  overcoming a given distance.
 
+    //Добавлен интерфейс п.9 стр 662
+    interface IVehicle{
+    // Вернуть дальность поездки транспортного средства
+    int range();
+    // Вычислить объем топлива, требующегося
+// для прохождения заданного пути
+    double fuelneeded(int miles);
+    // Методы доступа к переменным экземпляра
+    int getPassengers();
+    void setPassengers(int р);
+    int getFuelcap();
+    void setFuelcap(int f);
+    int getMpg();
+    void setMpg(int m);
+}
 
 // Добавление метода range() в класс Vehicle               //Adding a method of range () in the Vehicle class
 class Vehicle {
