@@ -32,7 +32,7 @@ package com;
 пришел - последним обслужен". Стек можно сравнить со стопкой тарелок, стоящих на столе. Последней берется тарелка, поставленная на стол первой. Создайте
 класс Stack, реализующий стек для хранения символов. Используйте методы push () и рор () для манипулирования содержимым стека. Пользователь класса
 Stack должен иметь возможность задавать размер стека при его создании. Все члены класса Stack, кроме методов push () и рор (), должны быть объявлены
-как pri vate. (Подсказка: в качестве исходной заготовки можете воспользоваться классом Queue, изменив в нем лишь способ доступа к данным.)*/
+как private. (Подсказка: в качестве исходной заготовки можете воспользоваться классом Queue, изменив в нем лишь способ доступа к данным.)*/
 // Класс, реализующий стек для хранения символов
 //class Stack {
 //    private char stck[]; // массив для хранения элементов стека
@@ -136,30 +136,140 @@ Stack должен иметь возможность задавать разме
 
 
 
-/*Создайте метод sum () , принимающий список аргументов переменной длины и предназначенный для суммирования передаваемых ему значений типа int. Метод
-должен возвращать результат суммирования. Продемонстрируйте работу этого метода.*/
-class Sumit {
-    int sum(int... n) {
-        int result = 0;
-        for (int aN : n) result += aN;    // БЫЛО      for (int i = 0; i < n.length; i++)     result += n[i];
-        return result;
-    }
-}
-
-class page_244 {
-    public static void main(String args[]) {
-        Sumit siObj = new Sumit();
-
-        int total = siObj.sum(1, 2, 3);
-        System.out.println("Cyммa: " + total);
-
-        total = siObj.sum(1, 2, 3, 4, 5);
-        System.out.println("Cyммa: " + total);
-    }
-}
+///*Создайте метод sum () , принимающий список аргументов переменной длины и предназначенный для суммирования передаваемых ему значений типа int. Метод
+//должен возвращать результат суммирования. Продемонстрируйте работу этого метода.*/
+//class Sumit {
+//    int sum(int... n) {
+//        int result = 0;
+//        for (int aN : n) result += aN;    // БЫЛО      for (int i = 0; i < n.length; i++)     result += n[i];
+//        return result;
+//    }
+//}
+//
+//class page_244 {
+//    public static void main(String args[]) {
+//        Sumit siObj = new Sumit();
+//
+//        int total = siObj.sum(1, 2, 3);
+//        System.out.println("Cyммa: " + total);
+//
+//        total = siObj.sum(1, 2, 3, 4, 5);
+//        System.out.println("Cyммa: " + total);
+//    }
+//}
 
 /*Приведите пример вызова переrруженноrо метода с переменным количеством аргументов,демонстрирующий возникновение неоднозначности.
 Ниже приведен один из вариантов переrружаемоrо метода с переменным числом аргументов, при вызове которого проявляется неоднозначность.
 douЫe myMeth(douЫe ... v ) { // ...
 douЫe myMeth(douЫe d, douЫe ... v) { // ...
 Если попытаться вызвать метод myМeth ( ) с одним аргументом следующим образом: myMeth(l.1); то компилятор не сможет определить, какой именно метод вызывается.*/
+
+
+
+
+
+    //Стр.348 ВОПРОСЫ
+    /*В этом проекте предстоит создать два класса исключений, которые будут использоваться классом очереди, разработанным в упражнении 8.1.
+    Эти исключения должны указывать на переполнение и опустошение очереди, а генерировать их будут методы put () и get () соответственно.
+    Ради простоты эти исключения добавляются в класс FixedQueue, но вы можете без труда внедрить их в любые другие классы очереди, разработанные в упражнении 8.1.*/
+
+// Исключение, возникающее при переполнении стека
+class StackFullException extends Exception {
+    int size;
+
+    StackFullException(int s) {
+        size = s;
+    }
+
+    public String toString() {
+        return "\nСтек заполнен. Максимальный размер стека: " +
+                size;
+    }
+}
+// Исключение, возникающее при обращении к пустому стеку
+        class StackEmptyException extends Exception {
+    public String toString() {
+        return "\nСтек пуст.";
+    }
+}
+    // Класс, реализующий стек для хранения символов
+    class Stack {
+        private char stck[]; // массив для хранения элементов стека
+        private int tos; // вершина стека
+        // Создать пустой стек заданного размера
+        Stack (int size) {
+            stck = new char[size]; // выделить память для стека
+            tos = 0;
+        }
+
+        // Создать один стек из другого стека
+        Stack(Stack ob){
+        tos = ob.tos;
+        stck = new char[ob.stck.length];
+// скопировать элементы
+        for(int i=0; i < tos; i++)
+        stck[i] = ob.stck[i];
+        }
+        // Создать стек с начальными значениями
+        Stack ( char a [] ) {
+            stck = new char[a.length];
+            for(int i = 0; i < a.length; i++) {
+                try {
+                    push(a[i]);
+                }
+                    catch(StackFullException ехс){
+                    System.out.println(ехс);
+            }
+        }
+    }
+        // Поместить символы в стек
+        void push(char ch) throws StackFullException{
+        if(tos==stck.length)
+                throw new StackFullException(stck.length);
+        stck[tos]= ch;
+        tos++;
+        }
+        // Извлечь символы из стека
+        char pop() throws StackEmptyException {
+            if (tos == 0)
+                throw new StackEmptyException();
+            tos--;
+            return stck[tos];
+        }
+    }
+// Демонстрация использования класса Stack
+class page_244 {
+    public static void main(String args[]) throws StackEmptyException, StackFullException {
+// создать пустой стек на 10 элементов
+        Stack stk1 = new Stack(10);
+        char name[] = {'Т', 'о', 'm'};
+// создать стек из массива
+        Stack stk2 = new Stack(name);
+        char ch = 0;
+        int i;
+// поместить символы в стек stkl
+        for (i = 0; i < 10; i++)
+            stk1.push((char) ('A' + i));
+// создать один стек из другого стека
+        Stack stk3 = new Stack(stk1);
+
+// отобразить стеки
+        System.out.print("Coдepжимoe stkl: ");
+        for (i = 0; i < 10; i++) {
+            ch = stk1.pop();
+            System.out.print(ch);
+        }
+        System.out.println("\n");
+        System.out.print("Coдepжимoe stk2: ");
+        for (i = 0; i < 3; i++) {
+            ch = stk2.pop();
+            System.out.print(ch);
+        }
+        System.out.println("\n");
+        System.out.print("Coдepжимoe stkЗ: ");
+        for (i = 0; i < 10; i++) {
+            ch = stk3.pop();
+            System.out.print(ch);
+        }
+    }
+}
