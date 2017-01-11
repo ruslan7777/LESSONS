@@ -6,7 +6,7 @@ package com;
 
 import java.io.*;
 
-class ShowFiletry {
+class ShowFileTry {
     public static void main(String args[]) {
         int i;
 
