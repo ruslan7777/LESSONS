@@ -26,6 +26,7 @@ class ShowFile {
     public static void main(String args[]) {
         int i;
         FileInputStream fin;
+
 // Прежде всего следует убедиться, что файл был указан,
 //        if (args.length != 1) {                                // Убрал проверку- программа заработала!!!
 //            System.out.println("Usage: ShowFile File");
