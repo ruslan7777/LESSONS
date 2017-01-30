@@ -2,6 +2,8 @@ package com;
 
 import java.io.*;
 
+//todo
+//РАЗОБРАТЬСЯ ДЕТАЛЬНО С  РАБОТОЙ ПРОГРАММЫ
 /**
  * Created by RUSLAN77 on  12.01.2017 in Ukraine
  */
